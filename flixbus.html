@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>FlixBus</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="flixbus.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/jquery.ui.slider.css'>
+  <link rel='stylesheet' href='https://unpkg.com/leaflet@1.2.0/dist/leaflet.css'>
+</head>
+<body>
+
+  <div class="bg-block my-hide"></div>
+  <div class="modal fade p-0" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog m-0 ml-auto">
+      <div class="modal-content vh-100 rounded-0 my-shadow border-0">
+        <div class="modal-header border-0 bg-green rounded-0 text-center">
+          <h5 class="modal-title w-100" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close o-1" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="fas fa-times text-light"></i></span>
+          </button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer border-0 my-shadow">
+          <button type="button" class="btn my-btn w-100" data-dismiss="modal" aria-label="Close">Zmknij</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 bg-white border-bottom">
+        <div class="row ">
+          <div class="col-12 max-w-bus m-auto" style="padding:24px;">
+            <form class="form-inline">
+              <div class="w-100 form-group pb-3 radio inline-radio">
+
+
+                <label class="container-radio">
+                  <input type="radio" checked="checked" class="switch-way-1" name="radio">
+                  <span class="checkmark"></span>W jedną stronę
+                </label>
+                <label class="container-radio">
+                  <input type="radio" class="switch-way-2" name="radio">
+                  <span class="checkmark"></span>Przejazd w obie strony
+                </label>
+              </div>
+              <div class="w-100 form-group justify-content-between align-items-end b-inf">
+                <div class="form-group search-bus position-relative" style="min-width: 480px;">
+                  <div class="form-group w-100">
+                    <label for="inputPassword2">Z:</label>
+                    <i class="fas fa-map-marker-alt input-i"></i>
+                    <input class="form-control w-100 input-left" id="myInput-od" type="text" placeholder="Krakow"
+                      value="Krakow" value-tmp="" data-toggle="dropdown" autocomplete="off">
+
+                    <div class="dropdown-menu  border p-0 position-absolute w-100">
+                      <div class="w-100 border-bottom d-flex justify-content-between">
+                        <ul class="list-group w-100 " id="myList-od">
+                          <p class="w-100 p-class">Europe</p>
+                          <li class="list-group-item">
+                            <p>First item <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                          <li class="list-group-item">
+                            <p>Second item <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                          <li class="list-group-item">
+                            <p>Third item <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                          <li class="list-group-item">
+                            <p>Fourth <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <button class="border bg-white colo-input" type="button" name="button" id="change-city"><i
+                        class="fas fa-exchange-alt"></i></button>
+
+
+                  </div>
+                  <div class="form-group w-100">
+                    <label for="inputPassword2">Do:</label>
+                    <i class="fas fa-map-marker-alt input-i-right"></i>
+                    <input class="form-control w-100 input-right" id="myInput-do" type="text" placeholder="Wieden"
+                      value="Wieden" data-toggle="dropdown" autocomplete="off" value-tmp="">
+
+                    <div class="dropdown-menu  border p-0 position-absolute w-100">
+                      <div class="w-100 border-bottom d-flex justify-content-between">
+                        <ul class="list-group w-100 " id="myList-do">
+                          <p class="w-100 p-class">Europe</p>
+                          <li class="list-group-item">
+                            <p>First item <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                          <li class="list-group-item">
+                            <p>Second item <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                          <li class="list-group-item">
+                            <p>Third item <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                          <li class="list-group-item">
+                            <p>Fourth <span><br>Województwo dolnośląskie, Polska</span></p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="form-group odjazd-powrot ">
+                  <div class="form-group m-0 w-100">
+                    <label>Odjazd:</label>
+                    <i class="fas fa-calendar-alt input-i"></i>
+                    <input type="text" class="form-control w-100  input-p  w-100 radius-5" id="odjazd"
+                      name="daterangepicker" />
+                  </div>
+                  <div class="form-group m-0 w-50 my-hide">
+                    <label>Powrot:</label>
+
+                    <input type="text" class="form-control w-100 input-r-date w-50" id="powrot"
+                      name="daterangepicker" />
+                  </div>
+                </div>
+
+
+
+                <div class="form-group m-0 dropdown-odjazd">
+                  <label>Pasażerowie/Rowery:</label>
+                  <div class="dropdown my-drop-licz w-100">
+                    <button type="button" class="form-control dropdown-toggle input-drop w-100 text-left radius-5"
+                      data-toggle="dropdown" id="my-drop-licz">
+                      3 osoby, как то так
+                    </button>
+                    <div class="dropdown-menu w-100 border p-0">
+
+
+                      <div class="w-100 border-bottom d-flex p-3 justify-content-between">
+                        <div class="w-auto d-inline">
+                          <div>
+                            <span class="font-weight-bold">Osoby dorosle</span>
+                          </div>
+                          <div>
+                            <span class="font-weight-light">Od 15 lat</span>
+                          </div>
+                        </div>
+                        <div class="input-group plus-minus-input w-auto">
+                          <div class="input-group-button">
+                            <button type="button" class="button hollow circle" data-quantity="minus"
+                              data-field="quantity">
+                              <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <input class="input-group-field" type="number" name="quantity" value="0">
+                          <div class="input-group-button">
+                            <button type="button" class="button hollow circle" data-quantity="plus"
+                              data-field="quantity">
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="w-100 border-bottom d-flex p-3 justify-content-between">
+                        <div class="w-auto d-inline">
+                          <div>
+                            <span class="font-weight-bold">Dzieci</span>
+                          </div>
+                          <div>
+                            <span class="font-weight-light">Od 0 do 14 lat</span>
+                          </div>
+                        </div>
+                        <div class="input-group plus-minus-input w-auto">
+                          <div class="input-group-button">
+                            <button type="button" class="button hollow circle" data-quantity="minus"
+                              data-field="quantity">
+                              <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <input class="input-group-field" type="number" name="quantity" value="0">
+                          <div class="input-group-button">
+                            <button type="button" class="button hollow circle" data-quantity="plus"
+                              data-field="quantity">
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="w-100 border-bottom d-flex p-3 justify-content-between">
+                        <div class="w-auto d-inline">
+                          <div>
+                            <span class="font-weight-bold">Rowery</span>
+                          </div>
+                          <div>
+                            <span class="font-weight-light">W autobusach nie wolno przewozić e-rowerów.</span>
+                          </div>
+                        </div>
+                        <div class="input-group plus-minus-input w-auto">
+                          <div class="input-group-button">
+                            <button type="button" class="button hollow circle" data-quantity="minus"
+                              data-field="quantity">
+                              <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <input class="input-group-field" type="number" name="quantity" value="0">
+                          <div class="input-group-button">
+                            <button type="button" class="button hollow circle" data-quantity="plus"
+                              data-field="quantity">
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn my-btn shukaj-btn">Szhukaj polaczenia</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 max-w-bus-2 m-auto">
+        <div class="row d-flex justify-content-between">
+          <div class="col-12 pt-5 col-lg-3" id="filter-block">
+            <div>
+              <strong>Odjazd z: Krakowa</strong>
+              <div id="time-range">
+                <div class=" d-flex justify-content-between ">
+                  <p class="d-inline time-p">czw., <span class="slider-time">5:00</span></p>
+                  <p class="d-inline time-p">czw., <span class="slider-time2">11:00</span></p>
+                </div>
+
+                <div class="sliders_step1 py-2">
+                  <div class="flat-slider" id="slider-range"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="py-4">
+              <strong>Odjazd z: Krakowa</strong>
+              <div id="time-range-2">
+                <div class=" d-flex justify-content-between ">
+                  <p class="d-inline time-p">czw., <span class="slider-time">5:00</span></p>
+                  <p class="d-inline time-p">czw., <span class="slider-time2">11:00</span></p>
+                </div>
+                <div class="sliders_step1 py-2">
+                  <div class="flat-slider" id="slider-range-2"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-2 border-top">
+              <p class="my-3"><strong>Przystanki - Krakow</strong></p>
+              <div class="inputJunioric d-flex ">
+                <input type="checkbox" name="optionsRadios" id="checkOther-1" value="other" checked>
+                <label for="checkOther-1"></label>
+                <p class="time-p p-1 pl-3">Krakow MDA <span class="o-5">(2)</span></p>
+              </div>
+            </div>
+
+            <div class="mt-2 border-top">
+              <p class="my-3"><strong>Przystanki - Krakow</strong></p>
+              <div class="inputJunioric d-flex ">
+                <input type="checkbox" name="optionsRadios" id="checkOther-2" value="other" checked>
+                <label for="checkOther-2"></label>
+                <p class="time-p p-1 pl-3">Wieden Erdberg (VIB) <span class="o-5">(2)</span></p>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="row pt-3 pb-4 d-flex align-items-end">
+              <div class="col-12 col-xl-6">
+                <p class="d-inline h3"><strong>Podróż tam</strong></p>
+              </div>
+              <div class="col-6 dropdown-toggle my-toggle">
+                <label class="m-0 o-5 filter-label">Sortuj wedlug</label>
+                <select class="form-control w-100 radius-5 " style="height: 44px;">
+                  <option>Odjazd (Najwczesniej)</option>
+                  <option>Odjazd (naj)</option>
+                </select>
+              </div>
+
+              <div class="col-6 d-block d-lg-none filters">
+                <i class="fas fa-filter input-i"></i>
+                <button type="text" class="form-control w-100 radius-5" id="button-filter" data-toggle="modal"
+                  data-target="#exampleModal">Filters</button>
+              </div>
+
+
+            </div>
+            <div class="accordion border-0 b-radius-8" id="accordionExample">
+              <div class="card b-radius-8" style="overflow: inherit; ">
+                <div class="card border-0 b-radius-8 p-2">
+                  <div class="card-header border-0 bg-white b-radius-8 px-sm-4 py-sm-2" id="headingTwo">
+                    <h2 class="mb-0">
+                      <div class="btn btn-link btn-block text-left collapsed text-dark p-2" type="button"
+                        data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo" style="text-decoration: none;">
+                        <div class="row ">
+                          <div class="col-12 col-sm-9 p-0">
+
+                            <div class="row">
+                              <div class="col-12 bold d-flex">7:30<div class="linia col ">7:30 godz.</div>7:30
+                              </div>
+                              <div class="col-6">Wieden Erdberg VIB</div>
+                              <div class="col-6 text-right">Krakow MDA</div>
+                              <div class="col-5 col-sm-5 pt-4 pr-0"><i class="fas fa-bus border p-2 br-round"> </i>
+                                <p class="d-inline p-0 pl-3 ">Bez przesiadek</p>
+                              </div>
+                              <div class="col-7 col-sm-7 pt-4">
+                                <div class="row d-flex justify-content-end">
+                                  <div class=" col-auto dropdown dp-style m-0 w-auto border-sm-right">
+                                    <p class="m-0 " data-toggle="dropdown" href="#"><i class="fas fa-wifi p-2"></i><i
+                                        class="fas fa-plug p-2"></i><i class="fas fa-shield-virus p-2"></i></p>
+                                    <div class="dropdown-menu p-2 my-shadow hov">
+                                      <span class="rob"></span>
+                                      <span class="text-nowrap"><i class="fas fa-wifi p-2 stal-i"></i>Darmowe
+                                        Wi-Fi</span>
+                                      <span class="text-nowrap"><i class="fas fa-plug p-2 stal-i"></i>Gniazda
+                                        elektryczne</span>
+                                      <span class="text-nowrap"><i class="fas fa-shield-virus p-2 stal-i"></i>Regularna
+                                        dezynfekcja</span>
+                                    </div>
+                                  </div>
+                                  <div class="col d-none d-sm-block"
+                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <i class="fas fa-user py-2 pl-2"></i>
+                                    <i class="far fa-user py-2"></i>
+                                    <i class="far fa-user py-2"></i>
+                                    <p class="d-inline p-0 pl-3" title="W wiekszosci puste">W wiekszosci puste</p>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div>
+                          <div
+                            class="col-12 col-sm-3 m-0 d-sm-flex p-0 align-items-end flex-column mt-4 mt-sm-0 pl-sm-3">
+
+                            <div class="d-inline d-sm-none"
+                              style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                              <i class="fas fa-user py-2 pl-1"></i>
+                              <i class="far fa-user py-2"></i>
+                              <i class="far fa-user py-2"></i>
+                              <p class="d-inline p-0 pl-3" title="W wiekszosci puste">W wiekszosci puste</p>
+                            </div>
+
+                            <div class="d-inline float-right p-0 h5 bold text-right mb-4">129<span
+                                style="font-size: 13px; bottom: 8px; position: relative;">,29 zl</span></div>
+                            <div class="mt-auto w-100">
+                              <button type="submit" class="btn my-btn-green w-100 dot-text">Rezerwuj 1 miejsce</button>
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body p-3">
+
+                      <table class="table bord-0 w-auto">
+                        <tbody>
+                          <tr>
+                            <td class="start-station">16:30</td>
+                            <td class="start-line">Krakow</td>
+                          </tr>
+
+                          <tr>
+                            <td class="przesiadki"></td>
+                            <td>Katowice</td>
+                          </tr>
+                          <tr>
+                            <td class="przesiadki"></td>
+                            <td>Katowice</td>
+                          </tr>
+                          <tr>
+                            <td class="przesiadki"></td>
+                            <td>Katowice</td>
+                          </tr>
+                          <tr>
+                            <td class="finish-station">23:30</td>
+                            <td class="finish-line">Opole</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="row">
+                        <div class="col-12 col-sm-6" id="map-back">
+                          <p class="my-2">Krakow</p>
+                          <div id="map"></div>
+                          <div type="button" class="full-map" data-toggle="modal" data-target="#exampleModal"
+                            id="mapClick1"><i class="fas fa-expand">
+                            </i></div>
+                        </div>
+
+                        <div class="col-12 col-sm-6" id="map-back-2">
+                          <p class="my-2">Wieden</p>
+                          <div id="map-2"></div>
+                          <div type="button" class="full-map" data-toggle="modal" data-target="#exampleModal"
+                            id="mapClick2"><i class="fas fa-expand">
+                            </i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-100 my-4">
+              <div class="text-center">
+                <p class="my-i">i</p>
+              </div>
+              <p class="text-center h4 font-weight-bold pb-1">Żadne przejazdy nie spełniają ustawień filtra.</p>
+              <button type="submit" class="btn my-btn w-100 inf-button">Usuń filtry, aby zobaczyć wyniki.</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e97a6a9c0b.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
+    <script src='https://unpkg.com/leaflet@1.2.0/dist/leaflet.js'></script>
+    <script src='./flixbus.js'></script>
+
+
+</body>
+
+</html>

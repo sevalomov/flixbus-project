@@ -1,0 +1,883 @@
+body, html {
+  background-color: #f7f7f7;
+  height: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.f-20 {
+  font-size: 20px;
+}
+
+.o-5 {
+  opacity: .5
+}
+
+.o-1 {
+  opacity: 1;
+}
+
+.max-w-bus {
+  z-index: 999;
+  border-radius: 8px;
+  background: white;
+}
+
+.bg-block {
+  background: #04090e91;
+  position: fixed;
+  height: 100vh;
+  z-index: 997;
+  width: 100%;
+}
+
+.max-w-bus-2, .max-w-bus {
+  max-width: 1218px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.radius-5 {
+  border-radius: 5px;
+}
+
+.br-round {
+  border-radius: 100px;
+}
+
+.b-radius-8 {
+  border-radius: 8px !important
+}
+
+.my-shadow {
+  box-shadow: 0 0 12px rgb(0 0 0 / 12%);
+}
+
+.my-btn {
+  justify-content: center;
+  padding: 0px 12px;
+  background-color: #fbad00;
+  color: white;
+  height: 44px;
+  line-height: 44px;
+}
+
+.my-btn:hover {
+  color: white;
+  background: #c68600;
+}
+
+.my-btn-green {
+  background: #73d712;
+  color: #fdfdfd;
+  font-weight: 500;
+}
+
+.my-btn-green:hover {
+  background: #5cac00;
+  color: #fdfdfd;
+}
+
+.bg-green {
+  background: #73d712;
+  color: #fdfdfd;
+}
+
+input, .input-drop {
+  height: 44px !important;
+}
+
+.input-drop {
+  padding: 0px 20px 0px 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.colo-input {
+  width: 38px;
+  color: #999fa5;
+  height: 38px;
+  border-radius: 100px;
+  position: a;
+  margin-left: -19px;
+  margin-right: -58px;
+  display: inline-block;
+  z-index: 9;
+}
+
+.input-left {
+  border-radius: 5px 0px 0px 5px;
+  padding-left: 30px;
+}
+
+.input-p {
+  padding-left: 30px;
+}
+
+.dwainputy input {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.dwainputy {
+  width: 50% !important;
+}
+
+.my-show {
+  display: block !important;
+}
+
+.my-hide {
+  display: none !important;
+}
+
+.form-group label {
+  justify-content: left;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, .45);
+}
+
+.input-r-date {
+  border-left: 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+input:focus::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.input-right {
+  border-left: 0px;
+  padding-left: 47px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.dropdown-toggle::after {
+  border: solid #ced4da;
+  border-width: 0 1px 1px 0;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.dropdown-toggle.my-toggle::after {
+  border: solid #ced4da;
+  border-width: 0 1px 1px 0;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.dropdown-toggle.my-toggle::after {
+  position: absolute;
+  right: 30px;
+  top: 41px;
+}
+
+select {
+  -webkit-appearance: none;
+}
+
+.leaflet-bottom.leaflet-right {
+  z-index: 9;
+  display: none;
+}
+
+.container-radio {
+  display: block;
+  position: relative;
+  padding-left: 44px;
+  padding-right: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio label {
+  height: 30px !important;
+}
+
+/* Hide the browser's default radio button */
+
+.container-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  height: 27px;
+  width: 27px;
+  border: 2px solid #ced4da;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+
+.container-radio:hover input~.checkmark {
+  /* background-color: #ccc; */
+}
+
+/* When the radio button is checked, add a blue background */
+
+.container-radio input:checked~.checkmark {
+  background-color: #fdfdfd;
+  border: 2px solid #73d712;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.container-radio input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+
+.container-radio .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #73d712;
+}
+
+.input-i {
+  position: absolute;
+  padding: 34px 0px 10px 10px;
+  color: #8b8b8b;
+}
+
+.input-i-right {
+  position: absolute;
+  padding: 34px 0px 11px 25px;
+  color: #8b8b8b;
+}
+
+/* plus minus input */
+
+.dropdown-menu {
+  min-width: 350px;
+}
+
+.plus-minus-input {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 120px;
+}
+
+.plus-minus-input .input-group-field {
+  text-align: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 1rem;
+}
+
+.plus-minus-input .input-group-field::-webkit-inner-spin-button, .plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.plus-minus-input .input-group-button .circle {
+  border: none !important;
+  background: white;
+}
+
+.plus-minus-input .input-group-button .circle i {
+  font-size: 11px;
+}
+
+.full-map {
+  position: absolute;
+  top: 50%;
+  right: 35px;
+  font-size: 22px;
+  padding: 1px 13px 0px 13px;
+  border-radius: 8px;
+  color: #8f9193;
+  background: #ffffffc7;
+  text-align: center;
+  z-index: 999;
+}
+
+.full-map i {
+  width: 24px;
+  height: 24px;
+}
+
+.my-drop-licz input {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  max-width: 60px;
+}
+
+/* slider */
+
+#time-range {
+  width: 100%;
+}
+
+.time-p {
+  color: #444;
+  font-weight: 300;
+}
+
+.flat-slider.ui-corner-all, .flat-slider .ui-corner-all {
+  border-radius: 0;
+}
+
+.flat-slider.ui-slider {
+  border: 0;
+  background: #ced4da;
+}
+
+.flat-slider.ui-slider-horizontal {
+  height: 3px;
+}
+
+.flat-slider.ui-slider-vertical {
+  height: 15em;
+  width: 6px;
+}
+
+.flat-slider .ui-slider-handle {
+  width: 28px;
+  height: 28px;
+  background: #fdfdfd;
+  border-radius: 50%;
+  border: 2px solid #ced4da;
+  cutsor: pointer !important
+}
+
+.flat-slider.ui-slider-horizontal .ui-slider-handle {
+  top: 50%;
+  margin-top: -15px;
+  cursor: grab;
+}
+
+.flat-slider.ui-slider-horizontal:first-child {
+  margin-left: 8px;
+}
+
+.flat-slider.ui-slider-horizontal:last-child {
+  margin-right: 15px;
+}
+
+.ui-slider .ui-slider-handle {
+  width: 28px !important;
+  height: 28px !important
+}
+
+.flat-slider.ui-slider-vertical .ui-slider-handle {
+  left: 50%;
+  margin-left: -11px;
+}
+
+.daterangepicker td.in-range {
+  background-color: #daf1b8 !important;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover {
+  background: #88dc2b !important;
+}
+
+.flat-slider .ui-slider-range {
+  border: 0;
+  border-radius: 6;
+  background: #f4ad31;
+}
+
+.flat-slider.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 3px;
+}
+
+.flat-slider.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 6px;
+}
+
+.box {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #FFFFFF;
+  margin: 24px 1px 4px 1px;
+}
+
+/* slider end*/
+
+.linia {
+  display: flex;
+  color: #808080;
+  align-items: center;
+  text-align: center;
+  font-weight: 300;
+}
+
+.linia::before, .linia::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #b7b7b7;
+}
+
+.linia::before {
+  margin-right: .25em;
+}
+
+.linia::after {
+  margin-left: .25em;
+}
+
+.inputJunioric label {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 0px !important;
+  position: relative;
+  border: 2px solid #73d712;
+  background: transparent;
+  border-radius: 4px !important;
+}
+
+.inputJunioric label:after {
+  content: '';
+  width: 12px;
+  height: 6px;
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  border: 2px solid #73d712;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  border-radius: 0px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.inputJunioric label:hover::after {
+  opacity: 0;
+}
+
+.inputJunioric input[type=checkbox] {
+  visibility: hidden;
+  position: absolute;
+}
+
+.inputJunioric input[type=checkbox]:checked+label:after {
+  opacity: 1;
+}
+
+/* drp-calendar */
+
+.drp-calendar {
+  padding: 10 !important;
+}
+
+.next.available {
+  height: 100% !important;
+  position: absolute !important;
+  right: 0px;
+  top: 0;
+  padding-top: 130px;
+  padding-right: 8px;
+}
+
+.prev.available {
+  height: 100% !important;
+  position: absolute !important;
+  left: 0px;
+  top: 0;
+  padding-top: 130px;
+  padding-left: 8px;
+}
+
+.daterangepicker {
+  padding: 30px 30px !important;
+}
+
+.daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span {
+  border: solid #999fa5 !important;
+  border-width: 0 2px 2px 0 !important;
+  padding: 5px !important;
+}
+
+.stal-i {
+  width: 40px;
+  text-align: center;
+}
+
+.bord-0 tbody tr td {
+  border: none;
+  padding: 5px 15px
+}
+
+.bord-0 tbody tr td:last-child {
+  border-left: 1px solid #ced4da;
+}
+
+/* map  */
+
+#map, #map-2 {
+  height: 80px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+#map .leaflet-top.leaflet-left {
+  display: none;
+}
+
+#map-2 .leaflet-top.leaflet-left {
+  display: none;
+}
+
+/* drop down  */
+
+.start-station::before {
+  content: "";
+  display: block !important;
+  float: right;
+  position: relative;
+  right: -21px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ced4da;
+  background: white;
+  border-radius: 50%;
+}
+
+.przesiadki::before {
+  content: "";
+  display: block !important;
+  float: right;
+  position: relative;
+  right: -22px;
+  top: 12px;
+  width: 7px;
+  height: 1px;
+  background: #ced4da;
+}
+
+.finish-station::before {
+  content: "";
+  display: block !important;
+  float: right;
+  position: relative;
+  right: -21px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ced4da;
+  background: #ced4da;
+  border-radius: 50%;
+}
+
+.start-line, .finish-line {
+  border-left: none !important;
+}
+
+.start-line::before {
+  content: "";
+  position: relative;
+  right: -21px;
+  top: 14px;
+  left: -15px;
+  width: 1px;
+  height: 7px;
+  border-left: 1px solid #ced4da;
+  background: white;
+}
+
+.finish-line::before {
+  content: "";
+  position: relative;
+  right: -21px;
+  top: -14px;
+  left: -15px;
+  width: 1px;
+  height: 7px;
+  border-left: 1px solid #ced4da;
+  background: white;
+}
+
+tbody tr:first-child {
+  color: #343a40;
+  font-weight: 800
+}
+
+tbody tr {
+  font-weight: 300
+}
+
+.dp-style>.dropdown-menu {
+  display: none;
+}
+
+.dp-style:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  background: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.inf-button {
+  height: 34px;
+  line-height: 20px;
+  font-size: 18px;
+}
+
+.modal-body {
+  overflow: auto;
+}
+
+.my-i {
+  background: #f4ad31;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  color: white;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  line-height: 50px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.search-bus .form-group {
+  max-width: 240px;
+}
+
+.odjazd-powrot {
+  width: 290px;
+}
+
+.dropdown-odjazd {
+  max-width: 150px;
+}
+
+.dot-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-drop-licz .dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dropdown-odjazd .dropdown-menu {
+  left: 50% !important;
+  transform: translate3d(-50%, 50px, 0px) !important;
+}
+
+.dropdown-menu.hov {
+  left: 50% !important;
+  transform: translate3d(-50%, 40px, 0px) !important;
+  top: 0px !important;
+}
+
+.search-bus .dropdown-menu {
+  transform: translate3d(0px, 73px, 0px) !important;
+  overflow: hidden;
+}
+
+.list-group .list-group-item {
+  border: none !important;
+  padding: 5px 10px 5px 10px;
+}
+
+.list-group .list-group-item:hover {
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.list-group span {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 100 !important;
+  pointer-events: none;
+}
+
+.list-group .p-class {
+  padding: 10px;
+  margin: 0px;
+  color: #757575;
+  font-weight: 700;
+  ;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.list-group p {
+  margin: 0;
+}
+
+.b-inf {
+  display: flex;
+}
+
+.modal-dialog {
+  max-width: 380px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .search-bus {
+    width: 100%;
+    display: contents;
+  }
+  .search-bus label {
+    opacity: 0;
+  }
+  .odjazd-powrot label {
+    opacity: 0;
+  }
+  .dropdown-odjazd label {
+    opacity: 0;
+  }
+  .search-bus .form-group {
+    max-width: 50%;
+  }
+  .odjazd-powrot {
+    width: 50%;
+  }
+  .my-drop-licz {
+    padding: 0px 10px 0px 10px;
+  }
+  .my-drop-licz .dropdown-toggle::after {
+    right: 23px;
+  }
+  .dropdown-odjazd {
+    width: 25%;
+    max-width: 25%;
+  }
+  .shukaj-btn {
+    width: 25%;
+  }
+  .filters i {
+    color: #73d712;
+    padding-left: 15px;
+    padding-top: 15px;
+  }
+  .filters button {
+    height: 44px;
+    text-align: start;
+    padding-left: 48px;
+  }
+  .filter-label {
+    top: 10px;
+    background: white;
+    left: 8px;
+    font-weight: 300;
+    padding: 0px 10px;
+    border-radius: 8px;
+    opacity: 1;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #filter-block {
+    display: none;
+  }
+  .dropdown-menu {
+    min-width: 0px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .search-bus .dropdown-menu {
+    transform: translate3d(0px, 47px, 0px) !important;
+    overflow: hidden;
+  }
+  .b-inf {
+    display: block;
+  }
+  .inline-radio {
+    display: contents;
+  }
+  .modal-dialog {
+    max-width: 100%;
+  }
+  .search-bus .form-group, .odjazd-powrot, .dropdown-odjazd {
+    max-width: 100%;
+    width: 100%;
+    height: 45px;
+    position: relative;
+    display: flex;
+  }
+  .my-drop-licz {
+    padding: 0px;
+  }
+  .shukaj-btn {
+    width: 100%;
+    margin-top: 17px;
+    height: 45px;
+  }
+  .input-left, .input-right {
+    border-radius: 5px;
+    padding-left: 30px;
+    border-left: 1px solid #ced4da;
+  }
+  .input-i, .input-i-right {
+    padding: 13px 0px 10px 10px;
+  }
+  .search-bus label, .odjazd-powrot label, .dropdown-odjazd label {
+    display: none;
+  }
+  .colo-input {
+    background-color: #ffffff;
+    position: absolute;
+    right: 39px;
+    margin: 30px 0px 0px 0px;
+    height: 45px;
+    width: 45px;
+  }
+  .daterangepicker {
+    width: 100% !important;
+    left: 0px !important;
+  }
+  .drp-calendar {
+    margin: auto !important;
+  }
+}
